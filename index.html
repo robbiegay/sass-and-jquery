@@ -16,12 +16,21 @@
     <!-- <script src="jquery.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script>
-
+        $("a").attr("href", "www.test.com");
+        console.log($("a").attr("href"));
         $("a").addClass("test");
-        $(document).ready(() => {
+        $(() => {
             $("a").click(function (event) {
                 event.preventDefault();
-                $(this).hide("slow");
+                // $(this).fadeOut(500).delay(5000).fadeIn(500);
+                $(this).animate(
+                    {
+                        left: "+=50",
+                        opacity: "-=0.25",
+                    },
+                    300,
+                    ()=>{console.log("Done");}
+                    );
             });
         });
 
